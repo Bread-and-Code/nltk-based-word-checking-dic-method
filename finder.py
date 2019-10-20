@@ -89,6 +89,20 @@ class Trie:
         return pCrawl != None and pCrawl.isEndOfWord
 
 
+
+def removeDuplicatesSave(file_name, set_data):
+    with open(file_name, 'r') as fp:
+        file_data = fp.readlines()
+        for word in file_data:
+            set_data.add(word.strip())
+        fp.close()
+        set_data=set(set_data)
+    with open(file_name, 'w') as fp:
+        for word in set_data:
+            fp.write(word + "\n")
+        fp.close()
+
+
 def main():
     # Trie object
     positiveTrie = Trie()
@@ -139,4 +153,3 @@ def main():
     destNeutralFile.close()
 if __name__ == '__main__':
     main()
-
